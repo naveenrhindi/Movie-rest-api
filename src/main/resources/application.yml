@@ -13,3 +13,6 @@ spring :
     properties :
       hibernate :
         format-sql : true
+# configured path
+projects :
+  poster : posters/

@@ -1,4 +1,4 @@
-package com.movie.entities;
+package com.movie.dto;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
@@ -8,37 +8,30 @@ import lombok.NoArgsConstructor;
 
 import java.util.Set;
 
-@Entity
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
-public class Movie {
+@NoArgsConstructor
+public class MovieDto {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer movieId;
 
-    @Column(nullable = false, length = 200)
     @NotBlank(message = "Please provide movie's title")
     private String title;
 
-    @Column(nullable = false)
     @NotBlank(message = "Please provide movie's director")
     private String Director;
 
-    @Column(nullable = false)
     @NotBlank(message = "Please provide movie's studio")
     private String studio;
 
-    @ElementCollection
-    @CollectionTable(name = "movie_cast")
     private Set<String> movieCast;
 
-    @Column(nullable = false)
     private Integer releasedYear;
 
-    @Column(nullable = false)
     @NotBlank(message = "Please provide movie's poster")
     private String poster;
+
+    @NotBlank(message = "Please provide poster url")
+    private String posterUrl;
 
 }
